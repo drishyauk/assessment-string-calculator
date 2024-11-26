@@ -37,6 +37,11 @@ function Calculator() {
     }
   };
 
+  const resetCalculator = () => {
+    setInput("");
+    setResult(null); // Reset the result
+  };
+
   return (
     <div className="calculator-container">
       <h2>String Calculator</h2>
@@ -46,9 +51,14 @@ function Calculator() {
         placeholder="Enter numbers separated by a custom delimiter or new lines/commas"
         className="input-textarea"
       />
-      <button onClick={calculateResult} className="calculate-button">
-        Calculate
-      </button>
+      <div className="btn-section">
+        <button onClick={calculateResult} className="calculate-button">
+          Calculate
+        </button>
+        <button onClick={resetCalculator} className="reset-button">
+          Reset
+        </button>
+      </div>
       {result !== null && (
         <div
           className={
